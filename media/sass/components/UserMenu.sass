@@ -1,0 +1,51 @@
+.header
+    width: 600px
+    &__info
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__search-form
+        display: flex
+        align-items: center
+        flex-wrap: nowrap
+        &_search
+            width: 300px
+            font-size: 16px
+            border-radius: 5px
+            height: 30px
+            border: 2px solid $white-smoke
+        &_button
+            outline: none
+            border: none
+            background: none
+            position: relative
+            cursor: pointer
+            left: -30px
+    &__user-info
+        width: 200px
+        display: flex
+        justify-content: space-around
+        align-items: center
+        cursor: pointer
+        &_preview
+            margin-left: -40px
+        &_name,&_grade
+            margin: 0
+        &_name
+            font-size: 16px
+        &_grade
+            font-size: 13px
+            color: $light-gray
+        &_icon
+            background-color: red
+            border-radius: 50%
+            width: 40px
+            height: 40px
+    &__route-links
+        display: flex
+        align-items: center
+        .icon
+            margin-right: 8px
+            &:first-child
+                margin-left: 5px
+                cursor: pointer
