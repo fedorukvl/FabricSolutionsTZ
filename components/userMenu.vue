@@ -29,7 +29,7 @@
 import VIcon from './VIcon.vue'
 export default {
   components: { VIcon },
-    name: 'Header', //Знаю, что лучше не называть таким именем компонент, но, к сожалению, ничего лучше не придумал
+    name: 'UserMenu',
 }
 </script>
 
