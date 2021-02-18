@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="layout">
     <navigation/>
-    <Nuxt />
+    <div class="layout__main">
+      <Nuxt />
+    </div>
   </div>
 </template>
 <script>
