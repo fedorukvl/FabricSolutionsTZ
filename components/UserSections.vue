@@ -14,11 +14,12 @@
                 <button class="user-sections__button">Условия</button>
             </li>
             <li class="user-sections__section">
-                <button class="user-sections__button">Респонденты</button>
+                <button class="user-sections__button
+                user-sections__button_active">Респонденты</button>
             </li>
         </ul>
         <keep-alive>
-            <component :is="neededComp"><!--при выборе раздела будет рендерится необходимый компонент --></component>
+           <!-- <component :is=""> при выборе раздела будет рендерится необходимый компонент </component> -->
         </keep-alive>
     </main>
 </template>
@@ -29,6 +30,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="sass" src="@/media/sass/components/UserSections.sass">
 
 </style>
