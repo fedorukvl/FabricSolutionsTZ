@@ -28,6 +28,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass" scoped src="@/media/sass/components/sections/Respondents.sass">
 
 </style>

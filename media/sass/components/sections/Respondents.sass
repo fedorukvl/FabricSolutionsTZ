@@ -1,0 +1,50 @@
+.respondents
+    border-radius: 5px
+    box-shadow: 0 0 8px rgba($black,.3)
+    &__title
+        font-size: 16px
+        padding: 15px 0 5px 15px
+        color: $light-gray
+        margin: 0
+    &__add-condition
+        height: 180px
+        display: flex
+        align-items: center
+        &_info
+            text-align: center
+            font-size: 16px
+            color: $basic-green
+            cursor: pointer
+            padding-bottom: 10px
+            width: 90%
+            margin: 0 auto
+            border-radius: 5px
+            border: 2px solid $white-smoke
+        &_plus
+            font-size: 50px
+            margin: 0
+        &_description
+            margin: 5px 0
+    &__footer
+        height: 100px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 0 30px
+        background-color: $white-smoke
+        &_test-button,&_next-button
+            outline: none
+            border: none
+            background: none
+            position: relative
+            cursor: pointer
+            font-size: 16px
+            border-radius: 5px
+            padding: 10px
+            box-shadow: 0 0 2px rgba($black,.4)
+        &_test-button
+            background-color: $white
+            color: $basic-green
+        &_next-button
+            background-color: $accept
+            color: $white

@@ -14,14 +14,18 @@
             </li>
         </ul>
         <keep-alive>
-           <!-- <component :is=""> при выборе раздела будет рендерится необходимый компонент </component> -->
+           <component v-if="currentSection" :is="currentSection"></component> 
         </keep-alive>
     </main>
 </template>
 
 <script>
+import Respondents from './sections/Respondents.vue';
 export default {
     name: 'UserSections',
+    components: {
+        Respondents,
+    },
 
     data(){
         return{
