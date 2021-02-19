@@ -4,11 +4,15 @@
       <div 
         v-for="(respond, index) in responds"
         :key="respond.id"
-        class="respondents__list"
-        >
+        :style="{'backgroundColor':respond.style.backgroundColor}"
+        class="respondents__condition"
+      >
+      <div class="respondents__list">
         <div class="respondents__condition-name">
-            <h3>Условие {{index+1}}</h3>
-            <select>
+            <h3 
+            :style="{'color':respond.style.color}"
+            >Условие {{index+1}}</h3>
+            <select class="respondents__condition-select">
               <option 
                 v-for="option in respond.options"
                 :key="option.id"
@@ -18,14 +22,16 @@
         <div class="respondents__condition-form">
           <div v-if="respond.isAge" class="respondents__age-form">
             <p>{{respond.name}}</p>
-            <label for="from">от</label>
-            <input type="text" id="from"/>
-            <label for="to">до</label>
-            <input type="text" id="to"/>
+            <div class="respondents__diapozons">
+              <label for="from">от</label>
+              <input type="text" id="from"/>
+              <label for="to">до</label>
+              <input type="text" id="to"/>
+            </div>
           </div>
           <div v-else-if="respond.isLoyaltyCartType" class="respondents__cart-type-form">
             <p>{{respond.name}}</p>
-            <select>
+            <select class="respondents__cart-type-select">
               <option 
                 v-for="cartType in respond.cartTypes"
                 :key="cartType.id"
@@ -35,7 +41,7 @@
           </div>
           <div v-else-if="respond.isLoyaltyCartStatus" class="respondents__cart-status-form">
             <p>{{respond.name}}</p>
-            <select>
+            <select class="respondents__cart-status-select">
               <option 
                 v-for="cartStatus in respond.cartStatus"
                 :key="cartStatus.id"
@@ -43,16 +49,17 @@
               >{{cartStatus.status}}</option>
             </select>
           </div>
-          <div class="respondints__condition-buttons">
-            <button>
+          <div class="respondents__condition-buttons">
+            <button class="respondents__add-button">
               <span>+ Добавить {{respond.name}}</span>
             </button>
-            <button>
-              <span>Удалить условие</span>
+            <button class="respondents__delete-button">
               <v-icon name="basket"/>
+              <span>Удалить условие</span>
             </button>
           </div>
         </div>
+      </div>
       </div>
       <div class="respondents__add-condition">
           <div class="respondents__add-condition_info" @click="addRespond">
@@ -84,6 +91,10 @@ export default {
         id: 1,
         name: 'Диапозон',
         isAge: true,
+        style: {
+          backgroundColor: '#fffcf5',
+          color: '#a97a07'
+        },
         options:[
           {
             id:1,
@@ -95,6 +106,10 @@ export default {
         id: 2,
         name: 'Тип',
         isLoyaltyCartType: true,
+        style: {
+          backgroundColor: '#f8faff',
+          color: '#214aa9'
+        },
         cartTypes:[
           {
             id: 1,
@@ -112,6 +127,10 @@ export default {
         id: 3,
         name: 'Статус',
         isLoyaltyCartStatus: true,
+        style: {
+          backgroundColor: '#fafff8',
+          color: '#30a525'
+        },
         cartStatus:[
           {
             id: 1,

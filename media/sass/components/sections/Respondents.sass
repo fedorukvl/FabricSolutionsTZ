@@ -1,9 +1,70 @@
 .respondents
     border-radius: 5px
     box-shadow: 0 0 8px rgba($black,.3)
+    &__list
+        display: flex
+        flex-direction: column
+        margin: 0 auto
+        width: 90%
+    &__condition-name,&__cart-type-form,&__cart-status-form
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__condition-select,&__cart-type-select,&__cart-status-select
+        cursor: pointer
+        padding: 10px
+        width: 79%
+        font-size: 14px
+        border-radius: 5px
+        height: 40px
+        border: 2px solid $white-smoke
+        &:focus
+            border: 2px solid $light-green
+    &__cart-type-select,&__cart-status-select
+        width: 79%
+    &__condition-form
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    &__condition-buttons
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 20px 0 30px 0
+    &__add-button,&__delete-button
+        font-size: 16px
+        cursor: pointer
+        border-radius: 5px
+        height: 40px
+        background-color: $white
+    &__add-button
+        margin-left: 210px
+        border: 2px solid $light-green
+        color: $light-green
+    &__delete-button
+        display: flex
+        align-items: center
+        border: 2px solid $danger
+        color: $danger
+        .icon_basket
+            width: 23px
+            height: 23px
+    &__age-form
+        display: flex
+        align-items: center
+    &__diapozons
+        margin-left: 140px
+        #from
+            margin-right: 10px
+        #from,#to
+            font-size: 16px
+            border-radius: 5px
+            height: 40px
+            width: 20%
+            border: 2px solid $white-smoke
     &__title
         font-size: 16px
-        padding: 15px 0 5px 15px
+        padding: 15px
         color: $light-gray
         margin: 0
     &__add-condition
@@ -31,7 +92,7 @@
         align-items: center
         justify-content: space-between
         padding: 0 30px
-        background-color: $white-smoke
+        background-color: $smoke-gray
         &_test-button,&_next-button
             outline: none
             border: none
