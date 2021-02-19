@@ -2,12 +2,12 @@
   <div class="respondents">
       <h1 class="respondents__title">Добавить опрос</h1>
       <div 
-        v-for="respond in responds"
+        v-for="(respond, index) in responds"
         :key="respond.id"
         class="respondents__list"
         >
         <div class="respondents__condition-name">
-            <h3>Условие {{respond.id}}</h3>
+            <h3>Условие {{index+1}}</h3>
             <select>
               <option 
                 v-for="option in respond.options"
@@ -75,7 +75,12 @@ export default {
   component: {VIcon},
   data(){
     return{
-      responds:[{
+      responds:[],
+      pickedConditionsCount:0,
+    };
+  },
+  respondOptions:[
+    {
         id: 1,
         name: 'Диапозон',
         isAge: true,
@@ -119,12 +124,17 @@ export default {
             title: 'Статус карты лояльности',
           }
         ]
-      }],
-    };
-  },
+      },
+  ],
   methods:{
     addRespond(){
-      console.log('test');
+      const optionsCount = this.pickedConditionsCount;
+      const respondsList = this.responds;
+      const optionsList = this.$options.respondOptions;
+      if(optionsCount < optionsList.length){
+        respondsList.push(optionsList[optionsCount]);
+        this.pickedConditionsCount+=1;
+      }
     }
   }
 }
