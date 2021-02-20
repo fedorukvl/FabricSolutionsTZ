@@ -1,66 +1,15 @@
 <template>
   <div class="respondents">
       <h1 class="respondents__title">Добавить опрос</h1>
-      <div 
-        v-for="(respond, index) in responds"
+      <conditions 
+        v-for="(respond,index) in responds"
         :key="respond.id"
         :style="{'backgroundColor':respond.style.backgroundColor}"
         class="respondents__condition"
-      >
-      <div class="respondents__list">
-        <div class="respondents__condition-name">
-            <h3 
-            :style="{'color':respond.style.color}"
-            >Условие {{index+1}}</h3>
-            <select class="respondents__condition-select">
-              <option 
-                v-for="option in respond.options"
-                :key="option.id"
-                selected>{{option.title}}</option>
-            </select>
-        </div>
-        <div class="respondents__condition-form">
-          <div v-if="respond.isAge" class="respondents__age-form">
-            <p>{{respond.name}}</p>
-            <div class="respondents__diapozons">
-              <label for="from">от</label>
-              <input type="text" id="from"/>
-              <label for="to">до</label>
-              <input type="text" id="to"/>
-            </div>
-          </div>
-          <div v-else-if="respond.isLoyaltyCartType" class="respondents__cart-type-form">
-            <p>{{respond.name}}</p>
-            <select class="respondents__cart-type-select">
-              <option 
-                v-for="cartType in respond.cartTypes"
-                :key="cartType.id"
-                selected
-              >{{cartType.type}}</option>
-            </select>
-          </div>
-          <div v-else-if="respond.isLoyaltyCartStatus" class="respondents__cart-status-form">
-            <p>{{respond.name}}</p>
-            <select class="respondents__cart-status-select">
-              <option 
-                v-for="cartStatus in respond.cartStatus"
-                :key="cartStatus.id"
-                selected
-              >{{cartStatus.status}}</option>
-            </select>
-          </div>
-          <div class="respondents__condition-buttons">
-            <button class="respondents__add-button">
-              <span>+ Добавить {{respond.name}}</span>
-            </button>
-            <button class="respondents__delete-button">
-              <v-icon name="basket"/>
-              <span>Удалить условие</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      </div>
+        :respond="respond"
+        :index="index"
+        @delete="removeCondition"
+        />
       <div class="respondents__add-condition">
           <div class="respondents__add-condition_info" @click="addRespond">
             <p class="respondents__add-condition_plus">+</p>
@@ -77,9 +26,10 @@
 
 <script>
 import VIcon from '../VIcon.vue';
+import Conditions from './Conditions.vue';
 export default {
+  components: { Conditions,VIcon },
   name:'Respondents',
-  component: {VIcon},
   data(){
     return{
       responds:[],
@@ -153,12 +103,17 @@ export default {
       if(optionsCount < optionsList.length){
         respondsList.push(optionsList[optionsCount]);
         this.pickedConditionsCount+=1;
+      }else if(!respondsList.length){
+        this.pickedConditionsCount=0;
       }
+    },
+    removeCondition(index){
+      this.responds.splice(index,1);
     }
   }
 }
 </script>
 
-<style lang="sass" scoped src="@/media/sass/components/sections/Respondents.sass">
+<style lang="sass" src="@/media/sass/components/sections/Respondents.sass">
 
 </style>
