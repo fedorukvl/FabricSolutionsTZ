@@ -20,7 +20,7 @@
           </div>
       </div>
       <div class="header__route-links">
-        <nuxt-link class="header__route-link" to="/">
+        <nuxt-link v-if="formatedPath !==''" class="header__route-link" to="/">
           <v-icon name='home'/>
         </nuxt-link>
         <template v-if="formatedPath">
@@ -40,7 +40,7 @@ export default {
   components: { VIcon },
   computed:{
     formatedPath(){
-      return this.$route.path.slice(1)==='respondents'?'Опросы':this.$route.path.slice(1)==='users'?'Пользователи':this.$route.path.slice(1)==='blackList'?'Черный список':this.$route.path.slice(1)==='callCenter'?'Колл-центр':this.$route.path.slice(1)==='help'?'Помощь':'';
+      return this.$route.path.slice(1)==='interview'?'Опросы':this.$route.path.slice(1)==='users'?'Пользователи':this.$route.path.slice(1)==='blackList'?'Черный список':this.$route.path.slice(1)==='callCenter'?'Колл-центр':this.$route.path.slice(1)==='help'?'Помощь':'';
     }
   }
 }

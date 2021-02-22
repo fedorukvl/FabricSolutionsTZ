@@ -4,7 +4,7 @@
             <li class="navigation__link navigation__link_logo navigation__link_unhovered"></li>
             <ul class="navigation__section">
                 <li>
-                    <nuxt-link active-class="navigation__link_active" class="navigation__link" to="/respondents">
+                    <nuxt-link active-class="navigation__link_active" class="navigation__link" to="/interview">
                         <v-icon name="respondent"/>
                         <p class="navigation__link_title">Опросы</p>
                     </nuxt-link>
