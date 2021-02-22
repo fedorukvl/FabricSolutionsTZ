@@ -20,9 +20,15 @@
           </div>
       </div>
       <div class="header__route-links">
-        <v-icon name='home'/>
-        <v-icon name='forward-arrow'/>
-        <!-- имя роута -->
+        <nuxt-link class="header__route-link" to="/">
+          <v-icon name='home'/>
+        </nuxt-link>
+        <template v-if="formatedPath">
+          <v-icon name='forward-arrow'/>
+          <nuxt-link class="header__route-link" to="$route.path">
+            {{formatedPath}}
+          </nuxt-link>
+        </template>
       </div>
   </header>
 </template>
@@ -30,8 +36,13 @@
 <script>
 import VIcon from './VIcon.vue'
 export default {
+  name: 'UserMenu',
   components: { VIcon },
-    name: 'UserMenu',
+  computed:{
+    formatedPath(){
+      return this.$route.path.slice(1)==='respondents'?'Опросы':this.$route.path.slice(1)==='users'?'Пользователи':this.$route.path.slice(1)==='blackList'?'Черный список':this.$route.path.slice(1)==='callCenter'?'Колл-центр':this.$route.path.slice(1)==='help'?'Помощь':'';
+    }
+  }
 }
 </script>
 
