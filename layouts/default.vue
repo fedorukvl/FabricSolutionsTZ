@@ -3,6 +3,7 @@
     <navigation/>
     <div class="layout__main">
       <user-menu/>
+      <user-sections/>
       <Nuxt />
     </div>
   </div>
@@ -10,10 +11,12 @@
 <script>
 import Navigation from '../components/Navigation.vue'
 import UserMenu from '../components/userMenu.vue'
+import UserSections from '../components/UserSections.vue'
 export default {
   components:{
     Navigation,
     UserMenu,
+    UserSections,
   }
 }
 </script>
