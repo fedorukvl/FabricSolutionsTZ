@@ -29,7 +29,7 @@
 let lastDiapazonId = 1;
 let lastCartStatusId = 1;
 let lastCartTypeId = 1;
-import VIcon from '../VIcon.vue';
+import VIcon from '../../VIcon.vue';
 import Conditions from './Conditions.vue';
 export default {
   components: { Conditions,VIcon },

@@ -20,11 +20,19 @@
 </template>
 
 <script>
-import Respondents from './sections/Respondents.vue';
+import Respondents from './sections/Respondents/Respondents.vue';
+import Logic from './sections/Logic.vue';
+import Params from './sections/Params.vue';
+import Questions from './sections/Questions.vue'
+import Options from './sections/Options.vue'
 export default {
     name: 'UserSections',
     components: {
         Respondents,
+        Logic,
+        Params,
+        Questions,
+        Options
     },
 
     data(){
@@ -34,7 +42,7 @@ export default {
             {id: 1,title: 'Параметры',name:'Params'},
             {id: 2,title: 'Вопросы',name:'Questions'},
             {id: 3,title: 'Логика',name:'Logic'},
-            {id: 4,title: 'Условия',name:'Conditions'},
+            {id: 4,title: 'Условия',name:'Options'},
             {id: 5,title: 'Респонденты',name:'Respondents'}]
         }
     },
